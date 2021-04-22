@@ -13,7 +13,7 @@ function App() {
             </div>
             <small>
               <a
-                href="https://github.com/MelaniaZ4/Weather-Application-Project.git"
+                href="https://github.com/MelaniaZ4/react-weather-app.git"
                 target="_blank"
                 rel="noreferrer"
               >
