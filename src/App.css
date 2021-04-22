@@ -1,38 +1,42 @@
+small {
+  color: #fdfcfb;
+}
+
+h1 {
+  color: #fdfcfb;
+}
+
 .App {
-  text-align: center;
+  font-family: MYRIADPRO Pro REGULAR;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  line-height: 28px;
+  font-weight: 100;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f7f6f7;
+  background-image: url("https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1680&q=80");
+  position: absolute;
+  background-size: cover;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.background {
+  position: relative;
+  max-width: 1000px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.weather-app-wrapper {
+  max-width: 600px;
+  margin: 20px auto;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.weather-app {
+  padding: 20px;
+  border: 1px solid #dadde1;
+  min-height: 50vh;
+  color: #212529;
+  border-radius: 5px;
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e0c3aa 100%);
 }

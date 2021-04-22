@@ -1,10 +1,11 @@
 import React from "react";
 import axios from 'axios';
-import Loader from "react-loader-spinner";
+import SearchEngine from "./SearchEngine";
+import './Weather.css';
 
 export default function Weather(props){
     function handleResponse(response){
-        alert(`The temperature in  ${props.city} is ${response.data.main.temp}`);
+        alert(`The temperature in ${props.city} is ${response.data.main.temp}`);
     }
 
     console.log(props.city);
@@ -16,13 +17,60 @@ export default function Weather(props){
 
     return(
     <div>
-        <Loader
-        type="Puff"
-        color="#00BFFF"
-        height={100}
-        width={100}
-        timeout={3000} //3 secs
-      />
+        <SearchEngine />
+        <h1 className="city">Auckland</h1>
+        <div>
+            <ul className="overview">
+                <li>
+                Last updated: <span>Monday, 16:30</span>
+                </li>
+                <li>Light rain</li>
+            </ul>
+        </div>
+        <div>
+      <div className="row">
+        <div className="col-3">
+          <div className="clear-fix">
+            <img
+              src="http://openweathermap.org/img/wn/10n@2x.png"
+              alt="light rain"
+              className="float-left"
+            ></img>
+          </div>
+        </div>
+        <div className="col-3">
+          <div className="weather-temperature">
+            <span className="temperature">
+              19
+            </span>
+            <span className="units">
+              <a href="/" className="active">
+                °C
+              </a>
+              |<a href="/">°F</a>
+            </span>
+          </div>
+        </div>
+        <div className="col-6">
+          <ul>
+            <li>
+              Feels like: 
+              <span> 6</span>
+              °C
+            </li>
+            <li>
+              Humidity:
+              <span> 73</span>%
+            </li>
+            <li>
+              Wind:
+              <span> 2 </span>
+              km/h
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
     </div>
     );
 }

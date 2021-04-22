@@ -1,0 +1,42 @@
+h1 {
+  color: rgb(116, 88, 88);
+  margin-bottom: 0;
+  position: relative;
+  left: 30px;
+}
+
+li:first-letter {
+  text-transform: capitalize;
+}
+
+ul {
+  margin-bottom: 20px;
+}
+
+li {
+  list-style: none;
+  color: rgb(135, 135, 135);
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.active {
+  color: rgb(135, 135, 135);
+  cursor: default;
+  text-decoration: none;
+}
+
+.active:hover {
+  text-decoration: none;
+}
+
+.units {
+  font-size: 15px;
+}
+
+.temperature {
+  position: relative;
+  top: 18px;
+  left: -8px;
+  font-size: 40px;
+}
