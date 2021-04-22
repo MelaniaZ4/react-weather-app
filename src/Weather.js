@@ -2,23 +2,24 @@ import React from "react";
 import axios from 'axios';
 import SearchEngine from "./SearchEngine";
 import './Weather.css';
+import Forecast from "./Forecast";
 
 export default function Weather(props){
     function handleResponse(response){
-        alert(`The temperature in ${props.city} is ${response.data.main.temp}`);
+        console.log(`The temperature in ${props.city} is ${response.data.main.temp}`);
     }
 
     console.log(props.city);
     
     let apiKey = "f90893641239a4e3a1553d63b8e2a1a9";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=metric`;
-    
+
     axios.get(url).then(handleResponse);
 
     return(
     <div>
         <SearchEngine />
-        <h1 className="city">Auckland</h1>
+        <h1 className="city">{props.city}</h1>
         <div>
             <ul className="overview">
                 <li>
@@ -41,7 +42,7 @@ export default function Weather(props){
         <div className="col-3">
           <div className="weather-temperature">
             <span className="temperature">
-              19
+              8
             </span>
             <span className="units">
               <a href="/" className="active">
@@ -70,7 +71,15 @@ export default function Weather(props){
           </ul>
         </div>
       </div>
-    </div>
+      <div className="row weather-forecast">
+        <Forecast temperature={15} day="Tue" icon="01d"/>
+        <Forecast temperature={17} day="Wed" icon="01d"/>
+        <Forecast temperature={18} day="Thu" icon="02d"/>
+        <Forecast temperature={18} day="Fri" icon="11d"/>
+        <Forecast temperature={17} day="Sat" icon="04d"/>
+        <Forecast temperature={15} day="Sun" icon="03d"/>
+      </div>
+      </div>
     </div>
     );
 }

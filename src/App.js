@@ -7,11 +7,9 @@ function App() {
     <div className="background">
       <div className="container">
         <div className="weather-app-wrapper">
-          <header className="App-header">
-            <h1></h1>
-          </header>
+          
             <div className="weather-app">
-              <Weather />
+              <Weather city="Hamm"/>
             </div>
             <small>
               <a
@@ -19,7 +17,7 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
               >
-              Open-source code 
+              Open-source code {""}
               </a>
               by Melanie Brandes
             </small>
