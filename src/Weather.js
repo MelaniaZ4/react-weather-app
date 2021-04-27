@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import './Weather.css';
 import Forecast from "./Forecast";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props){
   const [ready, setReady] = useState(false);
@@ -62,61 +62,7 @@ export default function Weather(props){
         </div>
       </div>
     </form>
-        <h1 className="city">{weatherData.city}</h1>
-        <div>
-            <ul className="overview">
-                <li>
-                Last updated: 
-                <span>
-                <FormattedDate date={weatherData.date} />
-                </span>
-                </li>
-                <li>{weatherData.description}</li>
-            </ul>
-        </div>
-        <div>
-      <div className="row">
-        <div className="col-3">
-          <div className="clear-fix">
-            <img
-              src={weatherData.icon}
-              alt={weatherData.description}
-              className="float-left"
-            ></img>
-          </div>
-        </div>
-        <div className="col-3">
-          <div className="weather-temperature">
-            <span className="temperature">
-              {Math.round(weatherData.temperature)}
-            </span>
-            <span className="units">
-              <a href="/" className="active">
-                °C
-              </a>
-              |<a href="/">°F</a>
-            </span>
-          </div>
-        </div>
-        <div className="col-6">
-          <ul>
-            <li>
-              Feels like: 
-              <span> {Math.round(weatherData.feelsLike)}</span>
-              °C
-            </li>
-            <li>
-              Humidity:
-              <span> {weatherData.humidity}</span>%
-            </li>
-            <li>
-              Wind:
-              <span> {Math.round(weatherData.wind)} </span>
-              km/h
-            </li>
-          </ul>
-        </div>
-      </div>
+    <WeatherInfo data={weatherData} /> 
       <div className="row weather-forecast">
         <Forecast temperature={15} day="Tue" icon="01d"/>
         <Forecast temperature={17} day="Wed" icon="01d"/>
@@ -124,7 +70,6 @@ export default function Weather(props){
         <Forecast temperature={18} day="Fri" icon="11d"/>
         <Forecast temperature={17} day="Sat" icon="04d"/>
         <Forecast temperature={15} day="Sun" icon="03d"/>
-      </div>
       </div>
     </div>
     );
