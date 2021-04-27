@@ -20,7 +20,7 @@ li {
   line-height: 19px;
 }
 
-img {
+.float-left {
   display: block;
   margin: 0 auto;
   height: 100px;
