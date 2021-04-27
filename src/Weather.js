@@ -1,29 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from 'axios';
-import SearchEngine from "./SearchEngine";
 import './Weather.css';
 import Forecast from "./Forecast";
 
 export default function Weather(props){
+  const [ready, setReady] = useState(false);
+  const [weatherData, setWeatherData] = useState({});
+  const [city, setCity] = useState(props.defaultCity);
+
     function handleResponse(response){
-        console.log(`The temperature in ${props.city} is ${response.data.main.temp}`);
-    }
-
-    console.log(props.city);
+        console.log(response.data);
+        setWeatherData ({
+          ready: true,
+          city: response.data.name,
+          temperature: response.data.main.temp,
+          humidity: response.data.main.humidity,
+          date: "Monday, 16:30",
+          description: response.data.weather[0].description,
+          wind: response.data.wind.speed, 
+          icon: "http://openweathermap.org/img/wn/10n@2x.png",
+        })
+        setReady(true);
+    } 
     
-    let apiKey = "f90893641239a4e3a1553d63b8e2a1a9";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=metric`;
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
 
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  function search(){
+    const apiKey = "f90893641239a4e3a1553d63b8e2a1a9";
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(url).then(handleResponse);
-
+  }
+ 
+    if(ready){
     return(
     <div>
-        <SearchEngine />
-        <h1 className="city">{props.city}</h1>
+      <form className="mb-3" onSubmit={handleSubmit}>
+      <div className="row">
+        <div className="col-md-8">
+          <input
+            placeholder="Type city name"
+            type="search"
+            className="form-control"
+            autoComplete="off"
+            onChange={handleCityChange}
+          ></input>
+        </div>
+        <div className="col-md-4">
+          <input
+            type="submit"
+            value="Search"
+            className="btn btn-primary w-100"
+          ></input>
+        </div>
+      </div>
+    </form>
+        <h1 className="city">{weatherData.city}</h1>
         <div>
             <ul className="overview">
                 <li>
-                Last updated: <span>Monday, 16:30</span>
+                Last updated: <span>{weatherData.date}</span>
                 </li>
                 <li>Light rain</li>
             </ul>
@@ -42,7 +84,7 @@ export default function Weather(props){
         <div className="col-3">
           <div className="weather-temperature">
             <span className="temperature">
-              8
+              {Math.round(weatherData.temperature)}
             </span>
             <span className="units">
               <a href="/" className="active">
@@ -61,11 +103,11 @@ export default function Weather(props){
             </li>
             <li>
               Humidity:
-              <span> 73</span>%
+              <span> {weatherData.humidity}</span>%
             </li>
             <li>
               Wind:
-              <span> 2 </span>
+              <span> {weatherData.wind} </span>
               km/h
             </li>
           </ul>
@@ -82,4 +124,30 @@ export default function Weather(props){
       </div>
     </div>
     );
+
+} else {
+    search()
+    return (
+      <form className="mb-3" onSubmit={handleSubmit}>
+      <div className="row">
+        <div className="col-md-8">
+          <input
+            placeholder="Type city name"
+            type="search"
+            className="form-control"
+            autoComplete="off"
+            onChange={handleCityChange}
+          ></input>
+        </div>
+        <div className="col-md-4">
+          <input
+            type="submit"
+            value="Search"
+            className="btn btn-primary w-100"
+          ></input>
+        </div>
+      </div>
+    </form>
+    )
+}
 }
