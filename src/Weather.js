@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import './Weather.css';
 import Forecast from "./Forecast";
+import FormattedDate from "./FormattedDate";
 
 export default function Weather(props){
   const [ready, setReady] = useState(false);
@@ -9,16 +10,16 @@ export default function Weather(props){
   const [city, setCity] = useState(props.defaultCity);
 
     function handleResponse(response){
-        console.log(response.data);
         setWeatherData ({
           ready: true,
           city: response.data.name,
           temperature: response.data.main.temp,
           humidity: response.data.main.humidity,
-          date: "Monday, 16:30",
+          date: new Date(response.data.dt * 1000),
           description: response.data.weather[0].description,
           wind: response.data.wind.speed, 
-          icon: "http://openweathermap.org/img/wn/10n@2x.png",
+          feelsLike: response.data.main.feels_like,
+          icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
         })
         setReady(true);
     } 
@@ -65,9 +66,12 @@ export default function Weather(props){
         <div>
             <ul className="overview">
                 <li>
-                Last updated: <span>{weatherData.date}</span>
+                Last updated: 
+                <span>
+                <FormattedDate date={weatherData.date} />
+                </span>
                 </li>
-                <li>Light rain</li>
+                <li>{weatherData.description}</li>
             </ul>
         </div>
         <div>
@@ -75,8 +79,8 @@ export default function Weather(props){
         <div className="col-3">
           <div className="clear-fix">
             <img
-              src="http://openweathermap.org/img/wn/10n@2x.png"
-              alt="light rain"
+              src={weatherData.icon}
+              alt={weatherData.description}
               className="float-left"
             ></img>
           </div>
@@ -98,7 +102,7 @@ export default function Weather(props){
           <ul>
             <li>
               Feels like: 
-              <span> 6</span>
+              <span> {Math.round(weatherData.feelsLike)}</span>
               °C
             </li>
             <li>
@@ -107,7 +111,7 @@ export default function Weather(props){
             </li>
             <li>
               Wind:
-              <span> {weatherData.wind} </span>
+              <span> {Math.round(weatherData.wind)} </span>
               km/h
             </li>
           </ul>
