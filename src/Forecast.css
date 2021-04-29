@@ -8,7 +8,7 @@
 }
 
 .WeatherForecast-temperatures {
-  margin-top: 15px;
+  margin-top: 10px;
   color: rgb(135, 135, 135);
   font-size: 16px;
   font-weight: 600;
@@ -21,7 +21,7 @@
 }
 
 .WeatherForecast-day {
-  margin: 15px 20px;
+  margin: 10px 20px;
   color: #745858;
   font-size: 16px;
   font-weight: 300;
