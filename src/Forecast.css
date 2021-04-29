@@ -1,27 +1,29 @@
-canva {
-  display: block;
-  margin: 0 auto;
+.WeatherForecast {
+  text-align: center;
 }
 
-.forecast-day {
-  text-align: center;
-  margin-top: 30px;
+.WeatherForecast-temperature-min {
+  opacity: 0.6;
+  margin-left: 5px;
+}
+
+.WeatherForecast-temperatures {
+  margin-top: 15px;
   color: rgb(135, 135, 135);
-  font-size: 13px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 600;
   height: auto;
 }
-
-.weather-forecast-temperature {
-  text-align: center;
-  color: rgb(135, 135, 135);
-  font-size: 13px;
-  font-weight: 400;
-  height: auto;
-  position: relative;
-  top: 10px;
+.WeatherForecast-temperature-max {
+  opacity: 0.6;
+  margin-left: 5px;
+  color: #745858;
 }
 
-.temperature-low {
-  opacity: 0.9;
+.WeatherForecast-day {
+  margin: 15px 20px;
+  color: #745858;
+  font-size: 16px;
+  font-weight: 300;
+  height: auto;
 }
