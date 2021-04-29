@@ -20,6 +20,7 @@ export default function Weather(props){
           wind: response.data.wind.speed, 
           feelsLike: response.data.main.feels_like,
           icon: response.data.weather[0].icon,
+          coordinates: response.data.coord,
         })
         setReady(true);
     } 
@@ -62,15 +63,10 @@ export default function Weather(props){
         </div>
       </div>
     </form>
-    <WeatherInfo data={weatherData} /> 
-      <div className="row weather-forecast">
-        <Forecast temperature={15} day="Tue" icon="01d"/>
-        <Forecast temperature={17} day="Wed" icon="01d"/>
-        <Forecast temperature={18} day="Thu" icon="02d"/>
-        <Forecast temperature={18} day="Fri" icon="11d"/>
-        <Forecast temperature={17} day="Sat" icon="04d"/>
-        <Forecast temperature={15} day="Sun" icon="03d"/>
-      </div>
+    <WeatherInfo data={weatherData} size={64} /> 
+      <div className="weather-forecast">
+        <Forecast coordinates={weatherData.coordinates} />
+    </div>
     </div>
     );
 
@@ -97,6 +93,6 @@ export default function Weather(props){
         </div>
       </div>
     </form>
-    )
+    );
 }
 }

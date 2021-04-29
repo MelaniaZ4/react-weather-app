@@ -1,18 +1,15 @@
-img {
+canva {
   display: block;
   margin: 0 auto;
-  height: 48px;
-  width: 48px;
 }
 
 .forecast-day {
-  margin-top: 30px;
   text-align: center;
+  margin-top: 30px;
   color: rgb(135, 135, 135);
   font-size: 13px;
   font-weight: 400;
   height: auto;
-  list-style: 15px;
 }
 
 .weather-forecast-temperature {
@@ -21,5 +18,10 @@ img {
   font-size: 13px;
   font-weight: 400;
   height: auto;
-  line-height: 15px;
+  position: relative;
+  top: 10px;
+}
+
+.temperature-low {
+  opacity: 0.9;
 }

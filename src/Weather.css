@@ -23,30 +23,4 @@ li {
 .float-left {
   display: block;
   margin: 0 auto;
-  height: 100px;
-  width: 100px;
-}
-
-.active {
-  color: rgb(135, 135, 135);
-  cursor: default;
-  text-decoration: none;
-}
-
-.active:hover {
-  text-decoration: none;
-}
-
-.units {
-  font-size: 15px;
-  position: relative;
-  bottom: 12px;
-  right: 25px;
-}
-
-.temperature {
-  position: relative;
-  top: 5px;
-  left: -30px;
-  font-size: 40px;
 }
