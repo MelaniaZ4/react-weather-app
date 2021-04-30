@@ -1,18 +1,8 @@
-.active {
-  color: rgb(135, 135, 135);
-  cursor: default;
-  text-decoration: none;
-}
-
-.active:hover {
-  text-decoration: none;
-}
-
 .units {
   font-size: 15px;
   position: relative;
-  bottom: 12px;
-  right: 25px;
+  bottom: 40px;
+  left: 5px;
 }
 
 .temperature {
