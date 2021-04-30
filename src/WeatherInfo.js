@@ -21,7 +21,7 @@ export default function WeatherInfo(props) {
         </div>
         <div>
           <div className="row">
-            <div className="col-3 float-left">
+            <div className="col-4 float-left">
               <div className="clear-fix">
                 <WeatherIcon code={props.data.icon} />
               </div>
@@ -29,7 +29,7 @@ export default function WeatherInfo(props) {
             <span className="col-3 float-left">
               <Temperature celsius={props.data.temperature} />
             </span>
-            <div className="col-6">
+            <div className="col-5">
               <ul>
                 <li>
                   Feels like: 
