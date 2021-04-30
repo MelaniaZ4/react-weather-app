@@ -17,7 +17,7 @@
 
 .temperature {
   position: relative;
-  top: 5px;
+  top: 15px;
   left: -30px;
-  font-size: 40px;
+  font-size: 60px;
 }

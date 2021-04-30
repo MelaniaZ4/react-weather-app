@@ -25,3 +25,7 @@ li {
   display: block;
   margin: 0 auto;
 }
+
+.weather-forecast {
+  margin-top: 20px;
+}
