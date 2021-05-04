@@ -44,25 +44,25 @@ export default function Weather(props){
     return(
     <div>
         <form className="mb-3" onSubmit={handleSubmit}>
-      <div className="row">
-        <div className="col-md-8">
-          <input
-            placeholder="Type city name"
-            type="search"
-            className="form-control"
-            autoComplete="off"
-            onChange={handleCityChange}
-          ></input>
-        </div>
-        <div className="col-md-4">
-          <input
-            type="submit"
-            value="Search"
-            className="btn btn-primary w-100"
-          ></input>
-        </div>
-      </div>
-    </form>
+          <div className="row">
+            <div className="col-md-8">
+              <input
+                placeholder="Type city name"
+                type="search"
+                className="form-control"
+                autoComplete="off"
+                onChange={handleCityChange}
+              ></input>
+            </div>
+            <div className="col-md-4">
+              <input
+                type="submit"
+                value="Search"
+                className="btn btn-primary w-100"
+              ></input>
+            </div>
+          </div>
+        </form>
     <WeatherInfo data={weatherData} size={64} /> 
       <div className="weather-forecast">
         <Forecast coordinates={weatherData.coordinates} />
