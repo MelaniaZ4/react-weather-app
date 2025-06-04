@@ -19,7 +19,7 @@ function App() {
               >
               Open-source code {""}
               </a>
-              by Melanie Brandes
+              by Melanie Constable
             </small>
           </div>
         </div>
